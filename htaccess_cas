@@ -1,0 +1,12 @@
+# Sample .htaccess file using CAS
+
+#AuthType CAS
+#Require valid-user
+#require user netid123
+#Order deny,allow
+#Deny from all
+#Allow from 130.132
+#Allow from 128.36
+#Allow from 198.125.138
+#Allow from 204.90.81
+#Satisfy any

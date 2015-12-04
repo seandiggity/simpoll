@@ -1,0 +1,15 @@
+User-agent: * 
+Disallow: /
+Disallow: 
+Disallow: *
+Disallow: admin
+Disallow: .git
+
+# Google Image search
+User-agent: Googlebot-Image
+Disallow: /
+Disallow: 
+Disallow: *
+Disallow: admin
+Disallow: .git
+
