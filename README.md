@@ -1,6 +1,6 @@
 SimPoll
 =======
-This polling system grabs a $_GET string from a URL and adds it to a Comma Separated Values (CSV) text file.  This script is useful if you need to ask one question (e.g. via a link in an e-mail) and record the response.
+This polling system grabs a $_GET string from a URL and adds it to a Comma Separated Values (CSV) text file.  It is useful if you need to ask one question (e.g. via a link in an e-mail) and record the response.
 
 For something more complex and pretty, try Pollovoto [https://github.com/seandiggity/pollovoto](https://github.com/seandiggity/pollovoto)
 
@@ -13,7 +13,7 @@ Installation
 
 Use Cases
 -----------
-* Pretty much any Yes/No question that doesn't require any follow-up.
+* Any Yes/No question that doesn't require follow-up with the user.
 
 Source
 -----------
