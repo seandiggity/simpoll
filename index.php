@@ -94,11 +94,13 @@ if (isset($_GET['submit'])&&!isset($_SESSION['submitted'])&&isset($_GET[$reqResp
 			//remove last form submission from memory
 			unset($_GET);
 			
-			// success message, with optional redirect
-			echo('<div id="formSuccess" style="">'.$successMsg.'</div>');
-				if ($successRedir == 1) {
-					header("refresh: 0; url=".$redirURL);
-				}
+			if ($successMsg == 1) {
+				// success message, with optional redirect
+				echo('<div id="formSuccess" style="">'.$successMsg.'</div>');
+			}
+			if ($successRedir == 1) {
+				header("refresh: 0; url=".$redirURL);
+			}
 		        }
        		 	else {
 			die('<div class="alert alert-error">'.$failMsg.'</div>');
