@@ -158,10 +158,11 @@ function prettyReadCSV($filename, $header=false) {
 	$counter = 0;
 	while ($csvcontents = fgetcsv($handle)) {
 	    $counter++;
-	    if ($counter % 2 == 0) { echo '<tr class="even">'; } 
-	    else { echo '<tr>'; }
+	    $resultNum = $counter-1;	
+	    if ($counter % 2 == 0) { echo '<tr class="even"><td>'.$resultNum.'</td>'; } 
+	    else { echo '<td>'.$resultNum.'</td>'; }
 	    foreach ($csvcontents as $column) {
-		echo "<td>$counter</td><td>$column</td>";
+		echo "<td><strong>$column</strong></td>";
 	    }
 	    echo '</tr>';
 	}
