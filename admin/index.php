@@ -161,7 +161,7 @@ function prettyReadCSV($filename, $header=false) {
 	    if ($counter % 2 == 0) { echo '<tr class="even">'; } 
 	    else { echo '<tr>'; }
 	    foreach ($csvcontents as $column) {
-		echo "<td>$column</td>";
+		echo "<td>$counter</td><td>$column</td>";
 	    }
 	    echo '</tr>';
 	}

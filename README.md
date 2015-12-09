@@ -11,6 +11,11 @@ Installation
 
 3. There are sample .htaccess, .htpasswd, and robots.txt files in the root... it's wise to learn about these to maintain privacy.  Be wary of search engines and don't rely upon security by obscurity.  More Info: [.htaccess](http://en.wikipedia.org/wiki/.htaccess), [.htpasswd](http://en.wikipedia.org/wiki/.htpasswd), [robots.txt](http://en.wikipedia.org/wiki/Robots.txt)
 
+Example Usage
+-----------
+URL string: https://some-web-server.domain/simpoll/index.php?submit=1&bacon=1
+$_GET['submit'] is always required to record a response.
+
 Use Cases
 -----------
 * Any Yes/No question that doesn't require follow-up with the user.

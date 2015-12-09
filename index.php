@@ -61,11 +61,14 @@ if (isset($_GET['submit'])&&!isset($_SESSION['submitted'])&&isset($_GET[$reqResp
 			fclose($fp);
 			
 			// logic for "database"
+
 			if (file_exists($dbfilename)) {
+				if (filesize($dbfilename)>$maxFilesize) {
+				die('<div class="alert alert-error">'.$failMsg.'Database file is larger than maximum filesize in conf.php</div>'); }
+
 				stream_copy($dbfilename, $dbbackuptemp); //make backup of "database" file if it exists
 
 				if ($fp = fopen($dbfilename, 'a')) { //open "database" for writing
-
 						foreach($_GET as $name => $value) { //add new line to "database" with new submission data
 							if ($name!='submit'&&$value!='submit') {
 							$value = '"'.stripslashes(str_replace('_',' ',$value)).'",';
@@ -120,25 +123,24 @@ if (isset($_GET['submit'])&&!isset($_SESSION['submitted'])&&isset($_GET[$reqResp
 else { } // do nothing
 
 // Generate random string of a specific length
-function getRandomString($length = 6) {
-	$validCharacters = "abcdefghijklmnopqrstuxyvwzABCDEFGHIJKLMNOPQRSTUXYVWZ0123456789";
-	$validCharNumber = strlen($validCharacters);
-	$result = "";
-	for ($i = 0; $i < $length; $i++) {
-		$index = mt_rand(0, $validCharNumber - 1);
-		$result .= $validCharacters[$index];
-		}
-	return $result;
+	function getRandomString($length = 6) {
+		$validCharacters = "abcdefghijklmnopqrstuxyvwzABCDEFGHIJKLMNOPQRSTUXYVWZ0123456789";
+		$validCharNumber = strlen($validCharacters);
+		$result = "";
+		for ($i = 0; $i < $length; $i++) {
+			$index = mt_rand(0, $validCharNumber - 1);
+			$result .= $validCharacters[$index];
+			}
+		return $result;
 	}
 
 // optimized copy function
-    function stream_copy($src, $dest)
-    {
-        $fsrc = fopen($src,'r');
-        $fdest = fopen($dest,'w+');
-        $len = stream_copy_to_stream($fsrc,$fdest);
-        fclose($fsrc);
-        fclose($fdest);
-        return $len;
-    } 
-
+	function stream_copy($src, $dest) {
+		$fsrc = fopen($src,'r');
+		$fdest = fopen($dest,'w+');
+		$len = stream_copy_to_stream($fsrc,$fdest);
+		fclose($fsrc);
+		fclose($fdest);
+		return $len;
+	} 
+?>
