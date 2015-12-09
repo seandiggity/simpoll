@@ -14,6 +14,7 @@ Installation
 Example Usage
 -----------
 URL string: https://some-web-server.domain/simpoll/index.php?submit=1&bacon=1
+
 $_GET['submit'] is always required to record a response.
 
 Use Cases
